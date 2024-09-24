@@ -11,4 +11,3 @@ Arduino Control: Sends commands to Arduino.
 Motor Actuation: Arduino controls motors to mimic user actions.
 Benefits: Saves time, increases efficiency.
 
-Ethical Considerations: Use responsibly, adhere to platform terms.
