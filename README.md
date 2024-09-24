@@ -1,2 +1,14 @@
 # Arduino-OpenCV-Integration
-The program testing screen recording.py interacts with the port COM3 to communicate to an Arduino program certain keywords that allow servomotors to actuate depending on the scenario in a specific sequence. This program was originally made to automate the task of watching videos in a page that pays the user for completing some simple tasks
+Goal: Automate the process of watching videos for rewards.
+
+Tech Stack: Python, OpenCV, Arduino, IoT
+
+Process:
+
+Screen Capture: Python script records screen.
+Keyword Detection: Identifies keywords on video.
+Arduino Control: Sends commands to Arduino.
+Motor Actuation: Arduino controls motors to mimic user actions.
+Benefits: Saves time, increases efficiency.
+
+Ethical Considerations: Use responsibly, adhere to platform terms.
