@@ -1,0 +1,86 @@
+#include <Servo.h>
+Servo servoMotor1;
+Servo servoMotor2;
+Servo servoMotor3;
+int incomingByte = 0; // for incoming serial data
+char incoming = 'n';
+
+void setup() {
+   Serial.begin(11500);
+  pinMode(LED_BUILTIN, OUTPUT);
+  delay(1000);
+}
+
+void loop() {
+  // send data only when you receive data:
+
+//  if (Serial.read() == 'f') { 
+//     incoming = 'f';
+//    }
+//  else{
+//    incoming = 'n';
+//    }
+  
+  if (Serial.read() == 'f') { //Serial.available() > 0 && wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+    // read the incoming byte:
+//    incomingByte = Serial.read();
+
+    // say what you got:
+    Serial.print("I received: ");
+    Serial.println(Serial.read());
+    digitalWrite(LED_BUILTIN, HIGH);
+
+    servoMotor1.attach(8);
+    servoMotor2.attach(9);
+    servoMotor3.attach(10);
+    servoMotor1.write(120); //143
+    servoMotor2.write(130);
+    servoMotor3.write(130);
+
+    //CLICK
+    servoMotor1.write(180); 
+    delay(500);
+    servoMotor1.write(135);
+    delay(5000);
+    servoMotor1.write(180); 
+    delay(500);
+    servoMotor1.write(135);
+    delay(4000);
+    
+    //CTRL + W
+    
+    servoMotor2.write(150);
+    delay(500);
+    servoMotor3.write(150);
+    delay(500);
+    servoMotor2.write(130);
+    delay(100);
+    servoMotor3.write(130);
+    servoMotor2.detach();
+    servoMotor3.detach();
+    //W
+//    delay(4000); 
+    
+    //CLICK
+    delay(4000);
+    servoMotor1.write(180); 
+    delay(500);
+    servoMotor1.write(135);
+    delay(500);
+
+    servoMotor1.detach();
+
+    delay(2500);
+    digitalWrite(LED_BUILTIN, LOW);
+
+//    incoming = 'n';
+
+    delay(5000);
+    
+    
+  }
+  else{
+    digitalWrite(LED_BUILTIN, LOW);
+    }
+  
+}
